@@ -155,8 +155,9 @@ def query(address,tokenAddress,api_key):
             df_temp['amount'] = df_temp['amount'].astype(float)
 
 
-            # Append the DataFrame to the main DataFrame
-            df = df.append(df_temp, ignore_index=False)
+            # Concat the DataFrame to the main DataFrame
+            df = pd.concat([df, df_temp], ignore_index=False)
+
 
             # Get the next cursor for the next page
             pageInfo = data["data"][graphql_name]["pageInfo"]
