@@ -1,21 +1,10 @@
 ### libaries
 import requests
-import dotenv
 import os
 import pandas as pd
-
 import numpy as np
 from datetime import datetime
 
-
-dotenv.load_dotenv()
-
-api_key = os.getenv('AIRSTACK_API_KEY')
-
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": f"Bearer {api_key}",
-}
 
 ### GraphQL Queries 
 query_to_vesting = """
@@ -108,12 +97,19 @@ def get_relevant_time_range(df):
 
 ### SCRIPT
 
-
+# address = input("Please enter the underlying Token which will be locked into the veContract: ") #0xC128a9954e6c874eA3d62ce62B468bA073093F25  #veBAL
+# tokenAddress = input("Please enter the veContractToken: ") #0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56  # 80BAL-20WETH
 
 # USER INPUTS
-def run():
-    address = input("Please enter the underlying Token which will be locked into the veContract: ") #0xC128a9954e6c874eA3d62ce62B468bA073093F25  #veBAL
-    tokenAddress = input("Please enter the veContractToken: ") #0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56  # 80BAL-20WETH
+def query(address,tokenAddress,api_key):
+    
+    # api_key = os.getenv('AIRSTACK_API_KEY')
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}",
+    }
+    
 
     # tokenAddress = '0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56' #B-80BAL-20WETH
     # address = "0xC128a9954e6c874eA3d62ce62B468bA073093F25"
