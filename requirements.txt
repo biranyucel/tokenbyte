@@ -4,4 +4,3 @@ scipy==1.10.1
 matplotlib==3.7.1
 requests==2.26.0
 python-dotenv==0.19.1
-datetime==4.4.3
